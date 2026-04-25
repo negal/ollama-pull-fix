@@ -30,7 +30,7 @@ brew install aria2          # macOS
 # sudo apt install aria2    # Debian/Ubuntu
 
 # 2. Clone & run
-git clone https://github.com/<your-username>/ollama-pull-fix.git
+git clone https://github.com/negal/ollama-pull-fix.git
 cd ollama-pull-fix
 python3 scripts/ollama_deploy.py qwen2.5vl:3b
 ```
@@ -196,7 +196,7 @@ Not tested. The Python is portable but `aria2c`/`curl` invocation and path handl
 This repo is also a valid [Claude Code](https://claude.com/claude-code) skill. To install:
 
 ```bash
-git clone https://github.com/<your-username>/ollama-pull-fix.git ~/.claude/skills/ollama-pull-fix
+git clone https://github.com/negal/ollama-pull-fix.git ~/.claude/skills/ollama-pull-fix
 ```
 
 Then in Claude Code: *"use ollama-pull-fix to download llama3.2:3b"*. Claude will discover `SKILL.md` and run the script for you.

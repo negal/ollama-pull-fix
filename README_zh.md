@@ -30,7 +30,7 @@ brew install aria2          # macOS
 # sudo apt install aria2    # Debian/Ubuntu
 
 # 2. 克隆并运行
-git clone https://github.com/<your-username>/ollama-pull-fix.git
+git clone https://github.com/negal/ollama-pull-fix.git
 cd ollama-pull-fix
 python3 scripts/ollama_deploy.py qwen2.5vl:3b
 ```
@@ -198,7 +198,7 @@ cat ~/.ollama/models/manifests/registry.ollama.ai/library/<model>/<tag>
 本仓库本身就是一个合法的 [Claude Code](https://claude.com/claude-code) skill。安装：
 
 ```bash
-git clone https://github.com/<your-username>/ollama-pull-fix.git ~/.claude/skills/ollama-pull-fix
+git clone https://github.com/negal/ollama-pull-fix.git ~/.claude/skills/ollama-pull-fix
 ```
 
 之后在 Claude Code 里说"用 ollama-pull-fix 下载 llama3.2:3b"，Claude 会自动识别 `SKILL.md` 并调用脚本。
