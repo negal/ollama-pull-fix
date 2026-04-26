@@ -43,8 +43,11 @@ python3 scripts/ollama_deploy.py qwen2.5vl:3b
 
 - **纯标准库 Python**，零依赖，不用 `pip install`，不用 venv
 - **多线程断点续传**，aria2c 默认 4 路并发
+- **下载不完整自动重试**（最多 3 次），短暂网络抖动不再需要手动重跑
+- **强制大小校验**：每个 blob 下完都对比期望大小，不符就删了重试，避免"假成功"
+- **逐层 sha256 校验**：config + 每个 layer 都验，不止主模型 blob
+- **优雅降级**：单个 blob 最终失败时，已下载的字节会保留，重跑即可续传
 - **自动清空代理变量**（`HTTP_PROXY`、`HTTPS_PROXY` 等）——这种场景下代理通常帮倒忙
-- **SHA256 校验**主模型 blob 与 manifest 一致
 - **自动构建 manifest**，让 `ollama list` / `ollama run` 识别下载好的模型
 - **可重入**，已下载完成的 blob 重跑会跳过
 

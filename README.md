@@ -43,8 +43,11 @@ When the download finishes, `ollama list` will show the model and `ollama run qw
 
 - **Pure Python stdlib** — no `pip install`, no virtualenv, just `python3`
 - **Multi-threaded resumable downloads** via `aria2c` (4 connections per server by default)
+- **Auto-retry on incomplete downloads** (up to 3 attempts) — short network blips no longer require manual reruns
+- **Forced size verification** after every blob — partial files are deleted and retried instead of silently passing
+- **Per-layer SHA256 verification** — config + every layer is checked, not just the main model blob
+- **Graceful degradation** — if one blob ultimately fails, downloaded bytes are preserved and you can rerun to resume
 - **Auto-cleans proxy env vars** (`HTTP_PROXY`, `HTTPS_PROXY`, etc.) — proxies often make this worse, not better
-- **SHA256 verification** of the main model blob against the manifest
 - **Manifest auto-construction** so `ollama list` / `ollama run` recognize the downloaded model
 - **Idempotent** — already-downloaded blobs are skipped on rerun
 
